@@ -6,10 +6,11 @@
 //  Copyright © 2019 Yao Shun-Huai. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
-struct User {
-    let id: Int
-    let login: String
-    let avatar_url: String
+struct User: Decodable {
+    let id: Int?
+    let login: String?
+    let avatar_url: URL?
 }

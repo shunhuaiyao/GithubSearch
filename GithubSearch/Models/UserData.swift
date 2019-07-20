@@ -9,5 +9,5 @@
 import Foundation
 
 class UserData {
-    static var userModels = [User]()
+    static var userModels = [User?]()
 }

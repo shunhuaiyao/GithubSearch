@@ -10,14 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var userCollectionView: UICollectionView!
+    @IBOutlet weak var userCollectionViewFlowLayout: UICollectionViewFlowLayout!
+    let searchController = UISearchController(searchResultsController: nil)
+    var firstPage: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userCollectionView.delegate = self
+        userCollectionView.dataSource = self
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        searchController.dimsBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        navigationItem.searchController?.searchBar.delegate = self
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
         // Do any additional setup after loading the view.
-        let jsonUrlString = "https://api.github.com/search/users?q=sean"
-        guard let url = URL(string: jsonUrlString) else {
-            return
-        }
-        retrieveData(url)
     }
 
 

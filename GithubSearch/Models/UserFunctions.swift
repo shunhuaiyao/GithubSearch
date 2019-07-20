@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class UserFunctions {
+    static func addUser(userModel: User) {
+        UserData.userModels.append(userModel)
+    }
+    static func removeAllUsers() {
+        UserData.userModels.removeAll()
+    }
+}
